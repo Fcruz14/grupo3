@@ -1,0 +1,28 @@
+<div class="overlay">
+  <div class="alert-container">
+    <div class="alert alert-warning">
+      <form (ngSubmit)="InsertarReserva()">
+      <h2>Usuario: {{ usuario }}</h2>
+      <h2>Lugar: {{ nombreLugar }}</h2>
+
+      <mat-form-field class="example-form-field">
+        <mat-label>SELECCION DE FECHAS</mat-label>
+        <mat-date-range-input
+          [rangePicker]="campaignOnePicker"
+          [comparisonStart]="campaignTwo.get('start')!.value"
+          [comparisonEnd]="campaignTwo.get('end')!.value" >
+          <!-- Utiliza (ngModelChange) en lugar de (dateChange) -->
+          <input matStartDate placeholder="Fecha de Inicio" [(ngModel)]="fecha_inicio" [ngModelOptions]="{standalone: true}">
+          <input matEndDate placeholder="Fecha de Fin" [(ngModel)]="fecha_fin" (ngModelChange)="calcularPrecio()" [ngModelOptions]="{standalone: true}">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
+        <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
+      </mat-form-field>
+
+
+      <h2 >Precio {{ precio | currency: 'USD' }}</h2>
+      <button mat-raised-button color="primary" type="submit">Reservar</button>
+    </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="overlay">
+  <div class="alert-container">
+    <div class="alert alert-warning">
+      <!-- Formulario de inicio de sesión -->
+      <form (submit)="IniciarSesion()">
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Inicia Sesion</h2>
+              <table>
+                <tr>
+                  <td><label for="username">Nombre de usuario:</label></td>
+                  <td><input type="text" id="username" name="username" [(ngModel)]="usuario"></td>
+                </tr>
+                <tr>
+                  <td><label for="password">Contraseña:</label></td>
+                  <td><input type="password" id="password" name="password" [(ngModel)]="contrasena"></td>
+                </tr>
+              </table>
+              <div class="form-group d-flex justify-content-between;">
+                <a href="/reserva-index/0" mat-raised-button color="primary">Salir</a>
+                <button style="margin: 1% 0px 0px 2px;" type="submit" mat-raised-button color="primary">Iniciar Sesión</button>
+              </div>
+            <p class="signup-link">¿No tienes una cuenta? <a href="/registrar-usuario">Regístrate</a></p>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="overlay" *ngIf="mostrarAlerta">
+  <div class="alert-container">
+    <div class="alert alert-warning">
+      <p>Error al validar los datos Revise las credenciales o intentelo e nuevo mas tarde</p>
+      <button class="btn btn-primary" (click)="Cerrar()">ok</button>
+
+    </div>
+  </div>
+</div>

@@ -4,15 +4,16 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class ObtenerImagenesService {
+export class RegistrarUsuarioService {
 
-  private apiUrl = 'http://localhost:8080/ObtenerLugar';
+  private apiUrl = 'http://localhost:8080/RegistrarUsuario';
 
   constructor(private http: HttpClient) {}
 
-  // Método para obtener datos de la API
-  getDatosLugar(n:number): Promise<any> {
-    const body = { n };
+  // Método para enviar datos a la API
+  postRegistrarUsuario(nombre:string,ape_paterno:string,ape_materno:string,usuario:string,contraseña:string,correo:string,dni:string): Promise<any> {
+    const body = { nombre,ape_paterno,ape_materno,usuario,contraseña,correo,dni};
+    console.log(body);
     return this.http
       .post(this.apiUrl, body)
       .toPromise()

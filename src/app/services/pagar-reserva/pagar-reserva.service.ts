@@ -4,15 +4,16 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class ObtenerImagenesService {
+export class PagarReservaService {
 
-  private apiUrl = 'http://localhost:8080/ObtenerLugar';
+  private apiUrl = 'http://localhost:8080/PagarReserva';
 
   constructor(private http: HttpClient) {}
 
-  // Método para obtener datos de la API
-  getDatosLugar(n:number): Promise<any> {
-    const body = { n };
+  // Método para enviar datos a la API
+  postPagarReserva(reserva_id:any): Promise<any> {
+    const body = { reserva_id};
+    console.log(body);
     return this.http
       .post(this.apiUrl, body)
       .toPromise()
