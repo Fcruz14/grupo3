@@ -34,7 +34,7 @@ export class IndexReservaComponent  implements OnInit {
   async cargarImagenes() {
     this.imagenes = []; // Limpiar el arreglo de imágenes
 
-    for (let n = 1; n <= 6; n++) {
+    for (let n = 1; n <= 11; n++) {
       console.log(n);
       const apiUrl = 'http://localhost:8080/ObtenerImagen';
       const requestData = { n };
